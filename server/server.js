@@ -1,7 +1,10 @@
 const stores = require('./data/stores.js');
+const _ = require('lodash');
 const express = require('express');
 const app = express();
-const _ = require('lodash');
+const cors = require('cors');
+
+app.use(cors());
 
 app.get('/api/stores', function(req, res){
   var response = [];

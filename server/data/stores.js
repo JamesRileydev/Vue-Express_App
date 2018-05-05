@@ -15,24 +15,17 @@ const stores = [
   },
   {
     id: 3,
-    name: 'Galadriels Mirror of Brutal Truth',
-    imageURL: 'https://images.unsplash.com/photo-1497519098947-a305f214d3bc?auto=format&fit=crop&w=1350&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D',
-    location: 'Lothlorien',
-    nsfw: true
-  },
-  {
-    id: 4,
     name: 'Jabbas Light Sabers',
     imageURL: 'https://images.unsplash.com/photo-1481241857164-e8483bce922d?auto=format&fit=crop&w=1353&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D',
     location: 'Mos Eisley',
     nsfw: true
   },
   {
-    id: 5,
+    id: 4,
     name: 'Red Apple Ink',
-    imageURL: '',
+    imageURL: 'https://cdn.shopify.com/s/files/1/1891/5035/products/90_x700.png?v=1491943257',
     location:'Rivendell',
-    nsfw: true
+    nsfw: false
   }
 
 ];
