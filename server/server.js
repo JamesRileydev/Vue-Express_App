@@ -1,25 +1,35 @@
 const stores = require('./data/stores.js');
 const express = require('express');
 const app = express();
-
-app.get('/', function(req, res){
-  res.send('Hello World!')
-});
-
-// app.get('/api/stores', function(req, res){
-//   res.json(stores);
-// });
+const _ = require('lodash');
 
 app.get('/api/stores', function(req, res){
   var response = [];
+  console.log(req.query)
 
-  if( typeof req.query.nsfw != 'undefined' ){
-    response = stores.filter(function(store){
-      if(store.nsfw === true){
-        return store;
+  // this would usually adjust your database query
+  if(typeof req.query.nsfw != 'undefined'){
+    stores.filter(function(store){
+      if(store.nsfw.toString() == req.query.nsfw){
+        response.push(store);
       }
     });
-  } else {
+  }
+
+  // this would usually adjust your database query
+  if(typeof req.query.location != 'undefined'){
+    stores.filter(function(store){
+      if(store.location === req.query.location){
+        response.push(store);
+      }
+    });
+  }
+
+  // de-duplication:
+  response = _.uniqBy(response, 'id');
+
+  // in case no filtering has been applied, respond with all stores
+  if(Object.keys(req.query).length === 0){
     response = stores;
   }
 
